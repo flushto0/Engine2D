@@ -1,6 +1,7 @@
 #include <GL\glew.h>
 #include <cassert>
 #include "GlWindow.h"
+#include <QtCore\qtimer.h>
 
 void GlWindow::initializeGL()
 {
