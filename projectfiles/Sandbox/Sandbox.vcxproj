@@ -73,8 +73,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IntDir>$(Configuration)\Temp\</IntDir>
-    <IncludePath>$(ProjectDir)..\..\middleware\Qt\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\..\middleware\Qt\lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\..\middleware\Qt\include\;$(ProjectDir)..\..\middleware\glew\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\..\middleware\Qt\lib\;$(ProjectDir)..\..\middleware\glew\lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -94,7 +94,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>Qt5Cored.lib;Qt5Guid.lib;Qt5OpenGLd.lib;Qt5Widgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Qt5Cored.lib;Qt5Guid.lib;Qt5OpenGLd.lib;Qt5Widgetsd.lib;glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
