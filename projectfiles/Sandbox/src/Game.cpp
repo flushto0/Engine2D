@@ -1,6 +1,6 @@
 #include <QtWidgets\qapplication.h>
 #include "GlWindow.h"
-#include <QtCore\qtimer.h>
+
 
 int main(int argc, char* argv[])
 {

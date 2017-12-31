@@ -5,11 +5,15 @@
 
 class GlWindow : public QGLWidget
 {
+	Q_OBJECT
+
 	GLuint vertexBufferID;
 	QTimer timer;
 protected:
 	void initializeGL();
 	void paintGL();
+private slots:
+	void update();
 };
 
 #endif

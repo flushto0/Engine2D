@@ -1,7 +1,7 @@
 #include <GL\glew.h>
 #include <cassert>
 #include "GlWindow.h"
-#include <QtCore\qtimer.h>
+
 
 void GlWindow::initializeGL()
 {
@@ -19,6 +19,9 @@ void GlWindow::initializeGL()
 	};
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_STATIC_DRAW);
+
+	connect(&timer, SIGNAL(timeout()), this, SLOT(update()));
+	timer.start(0);
 }
 
 void GlWindow::paintGL()
@@ -27,4 +30,9 @@ void GlWindow::paintGL()
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
+}
+
+void GlWindow::update()
+{
+
 }
