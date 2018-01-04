@@ -2,6 +2,16 @@
 #include <cassert>
 #include "GlWindow.h"
 
+namespace
+{
+	float verts[] =
+	{
+		+0.0f, +0.1f,
+		-0.1f, -0.1f,
+		+0.1f, -0.1f
+	};
+}
+
 
 void GlWindow::initializeGL()
 {
@@ -10,13 +20,6 @@ void GlWindow::initializeGL()
 
 	glGenBuffers(1, &vertexBufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferID);
-
-	float verts[] = 
-	{
-		+0.0f, +0.1f,
-		-0.1f, -0.1f,
-		+0.1f, -0.1f
-	};
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_STATIC_DRAW);
 
