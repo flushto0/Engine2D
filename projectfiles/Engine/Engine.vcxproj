@@ -18,6 +18,12 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\math\Vector2D.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\math\Vector2D.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4A300833-22D2-4CE6-9157-154186625745}</ProjectGuid>
