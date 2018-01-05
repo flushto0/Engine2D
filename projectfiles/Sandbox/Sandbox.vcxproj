@@ -73,7 +73,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IntDir>$(Configuration)\Temp\</IntDir>
-    <IncludePath>$(ProjectDir)..\..\middleware\Qt\include\;$(ProjectDir)..\..\middleware\glew\include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\..\middleware\Qt\include\;$(ProjectDir)..\..\middleware\glew\include\;$(ProjectDir)..\Engine\src\;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)..\..\middleware\Qt\lib\;$(ProjectDir)..\..\middleware\glew\lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

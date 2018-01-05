@@ -1,5 +1,5 @@
 #include <gtest\gtest.h>
-#include <math\Vector2D.h>
+#include <Math/Vector2D.h>
 
 using namespace gameMath;
 
