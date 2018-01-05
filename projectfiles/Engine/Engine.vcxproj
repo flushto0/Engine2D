@@ -22,7 +22,7 @@
     <ClInclude Include="src\math\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\math\Vector2D.cpp" />
+    <None Include="src\math\Vector2D.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
