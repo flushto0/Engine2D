@@ -19,10 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Time\Clock.h" />
     <ClInclude Include="src\Math\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Math\Vector2D.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Time\Clock.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
