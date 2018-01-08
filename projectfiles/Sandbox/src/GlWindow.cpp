@@ -1,12 +1,13 @@
 #include <GL\glew.h>
 #include "GlWindow.h"
 #include <cassert>
-
 #include <Math\Vector2D.h>
+#include <Time\Clock.h>
 
 namespace
 {
 	using gameMath::Vector2D;
+	using gameTime::Clock;
 
 	Vector2D verts[] =
 	{
@@ -17,6 +18,7 @@ namespace
 
 	const unsigned int NUM_VERTS = sizeof(verts) / sizeof(*verts);
 	Vector2D shipPosition(-0.5f, -0.0f);
+	Clock gameClock;
 }
 
 void GlWindow::initializeGL()
@@ -52,7 +54,20 @@ void GlWindow::paintGL()
 
 void GlWindow::update()
 {
-	Vector2D velocity(0.001f, 0.001f);
-	shipPosition = shipPosition + velocity;
+	gameClock.newFrame();
+
+	Vector2D velocity(.5f, .5f);
+	shipPosition = shipPosition + velocity * gameClock.timeElapsedLastFrame();
 	repaint();
+}
+
+
+bool GlWindow::shutdown()
+{
+	return gameClock.shutdown();
+}
+
+bool GlWindow::initialize()
+{
+	return gameClock.initialize();
 }

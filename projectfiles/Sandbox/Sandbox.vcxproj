@@ -74,7 +74,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IntDir>$(Configuration)\Temp\</IntDir>
     <IncludePath>$(ProjectDir)..\..\middleware\Qt\include\;$(ProjectDir)..\..\middleware\glew\include\;$(ProjectDir)..\Engine\src\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\..\middleware\Qt\lib\;$(ProjectDir)..\..\middleware\glew\lib\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)..\..\middleware\Qt\lib\;$(ProjectDir)..\..\middleware\glew\lib\;$(ProjectDir)..\Engine\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -94,8 +94,11 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>Qt5Cored.lib;Qt5Guid.lib;Qt5OpenGLd.lib;Qt5Widgetsd.lib;glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Engine2D.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5OpenGLd.lib;Qt5Widgetsd.lib;glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>copy "$(ProjectDir)..\Engine\$(Configuration)\Engine2D.dll" "$(OutDir)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

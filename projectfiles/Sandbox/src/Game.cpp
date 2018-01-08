@@ -8,7 +8,9 @@ int main(int argc, char* argv[])
 	QApplication application(argc, argv);
 	
 	GlWindow window;
+	if (!window.initialize()) return -1;
 	window.show();
-
-	return application.exec();
+	unsigned int errCode = application.exec();
+	if(!window.shutdown()) errCode |= 1;
+	return errCode;
 }

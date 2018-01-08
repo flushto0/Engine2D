@@ -9,6 +9,9 @@ class GlWindow : public QGLWidget
 
 	GLuint vertexBufferID;
 	QTimer timer;
+public:
+	bool shutdown();
+	bool initialize();
 protected:
 	void initializeGL();
 	void paintGL();
