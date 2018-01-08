@@ -1,6 +1,7 @@
 #include <gtest\gtest.h>
 #include <Time/Clock.h>
 #include <Windows.h>
+#include <iostream>
 
 using gameTime::Clock;
 
@@ -30,9 +31,10 @@ TEST(Clock, FrameTimeDeltas)
 	EXPECT_TRUE(timedTime < 0.6f);
 
 	const int NUM_TESTS = 10 + rand() % 100;
-	const float EPSILON = 0.1f;
+	const float EPSILON = 0.006f;
 	for (int i = 0; i < NUM_TESTS; i++)
 	{
+		std::cout << ".";
 		int thisTestms = rand() % 10000;
 		float thisTestsec = thisTestms / 1000.0f;
 		
@@ -42,7 +44,7 @@ TEST(Clock, FrameTimeDeltas)
 
 		float elapsedsec = clock.timeElapsedLastFrame();
 		EXPECT_TRUE((thisTestsec - EPSILON) < elapsedsec);
-		EXPECT_TRUE(elapsedsec < (thisTestsec - EPSILON));
+		EXPECT_TRUE(elapsedsec < (thisTestsec + EPSILON));
 
 	}
 
