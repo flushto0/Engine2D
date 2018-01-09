@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <iostream>
 
+
 using gameTime::Clock;
 
 TEST(Clock, ClockInitializeFns)
@@ -12,6 +13,7 @@ TEST(Clock, ClockInitializeFns)
 	EXPECT_TRUE(clock.initialize());
 	EXPECT_TRUE(clock.shutdown());
 }
+#ifdef OVERNIGHT_TESTS
 
 TEST(Clock, FrameTimeDeltas)
 {
@@ -52,3 +54,5 @@ TEST(Clock, FrameTimeDeltas)
 	clock.timeElapsedLastFrame();
 	EXPECT_TRUE(clock.shutdown());
 }
+
+#endif

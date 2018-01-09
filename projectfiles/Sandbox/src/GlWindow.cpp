@@ -1,6 +1,8 @@
 #include <GL\glew.h>
 #include "GlWindow.h"
 #include <cassert>
+#include <QtGui\QKeyEvent>
+
 #include <Math\Vector2D.h>
 #include <Time\Clock.h>
 
@@ -17,12 +19,14 @@ namespace
 	};
 
 	const unsigned int NUM_VERTS = sizeof(verts) / sizeof(*verts);
-	Vector2D shipPosition(-0.5f, -0.0f);
+	Vector2D shipPosition;
+	Vector2D shipVelocity;
 	Clock gameClock;
 }
 
 void GlWindow::initializeGL()
 {
+	glViewport(0, 0, width(), height());
 	GLenum err = glewInit();
 	assert(err == 0);
 
@@ -55,9 +59,8 @@ void GlWindow::paintGL()
 void GlWindow::update()
 {
 	gameClock.newFrame();
-
-	Vector2D velocity(.5f, .5f);
-	shipPosition = shipPosition + velocity * gameClock.timeElapsedLastFrame();
+	updateVelocity();
+	shipPosition = shipPosition + shipVelocity * gameClock.timeElapsedLastFrame();
 	repaint();
 }
 
@@ -69,5 +72,27 @@ bool GlWindow::shutdown()
 
 bool GlWindow::initialize()
 {
+	
 	return gameClock.initialize();
+}
+
+void GlWindow::updateVelocity()
+{
+	const float ACCELERATION = 0.6f * gameClock.timeElapsedLastFrame();
+	if (GetAsyncKeyState(VK_UP))
+	{
+		shipVelocity.y += ACCELERATION;
+	}
+	if (GetAsyncKeyState(VK_DOWN))
+	{
+		shipVelocity.y -= ACCELERATION;
+	}
+	if (GetAsyncKeyState(VK_LEFT))
+	{
+		shipVelocity.x -= ACCELERATION;
+	}
+	if (GetAsyncKeyState(VK_RIGHT))
+	{
+		shipVelocity.x += ACCELERATION;
+	}
 }

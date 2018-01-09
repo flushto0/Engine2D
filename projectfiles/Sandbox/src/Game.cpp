@@ -9,6 +9,7 @@ int main(int argc, char* argv[])
 	
 	GlWindow window;
 	if (!window.initialize()) return -1;
+	window.resize(1024, 576);
 	window.show();
 	unsigned int errCode = application.exec();
 	if(!window.shutdown()) errCode |= 1;
