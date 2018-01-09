@@ -3,7 +3,7 @@
 
 using namespace gameMath;
 
-TEST(Vector2D, VectorInitialization)
+TEST(Vector2D, CtorDefault)
 {
 	Vector2D first(1, 2);
 
@@ -41,17 +41,44 @@ TEST(Vector2D, ScalarMultiplication)
 	EXPECT_FLOAT_EQ(result1.x, result2.x);
 	EXPECT_FLOAT_EQ(result1.y, result2.y);
 }
-TEST(Vector2D, CopyCtor)
+
+TEST(Vector2D, CtorCopy)
 {
-	Vector2D source(123.4, 567.8);
+	Vector2D source(123.4f, 567.8f);
 	Vector2D copied(source);
 	EXPECT_FLOAT_EQ(copied.x, source.x);
 	EXPECT_FLOAT_EQ(copied.y, source.y);
-
-
 }
 
-TEST(Vector2D, AssignmentOperators)
+TEST(Vector2D, OperatorAssignment)
 {
+	Vector2D left(123.4f, 567.8f);
+	Vector2D right(10, 10);
 
+	left = right;
+	
+	EXPECT_FLOAT_EQ(left.x, right.x);
+	EXPECT_FLOAT_EQ(left.y, right.y);
+}
+
+TEST(Vector2D, OperatorPlusEq)
+{
+	Vector2D left(123.4f, 567.8f);
+	Vector2D right(10, 10);
+
+	left += right;
+
+	EXPECT_FLOAT_EQ(left.x, 133.4f);
+	EXPECT_FLOAT_EQ(left.y, 577.8f);
+}
+
+TEST(Vector2D, OperatorMinusEq)
+{
+	Vector2D left(123.4f, 567.8f);
+	Vector2D right(10, 10);
+
+	left -= right;
+
+	EXPECT_FLOAT_EQ(left.x, 113.4f);
+	EXPECT_FLOAT_EQ(left.y, 557.8f);
 }
