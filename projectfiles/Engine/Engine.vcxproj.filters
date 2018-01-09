@@ -9,12 +9,14 @@
     <None Include="src\Math\Vector2D.inl">
       <Filter>Math</Filter>
     </None>
+    <None Include="src\Math\Matrix2D.inl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Math\Vector2D.h">
       <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="src\Time\Clock.h" />
+    <ClInclude Include="src\Math\Matrix2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Time\Clock.cpp" />
