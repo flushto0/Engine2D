@@ -42,25 +42,6 @@ TEST(Vector2D, ScalarMultiplication)
 	EXPECT_FLOAT_EQ(result1.y, result2.y);
 }
 
-TEST(Vector2D, CtorCopy)
-{
-	Vector2D source(123.4f, 567.8f);
-	Vector2D copied(source);
-	EXPECT_FLOAT_EQ(copied.x, source.x);
-	EXPECT_FLOAT_EQ(copied.y, source.y);
-}
-
-TEST(Vector2D, OperatorAssignment)
-{
-	Vector2D left(123.4f, 567.8f);
-	Vector2D right(10, 10);
-
-	left = right;
-	
-	EXPECT_FLOAT_EQ(left.x, right.x);
-	EXPECT_FLOAT_EQ(left.y, right.y);
-}
-
 TEST(Vector2D, OperatorPlusEq)
 {
 	Vector2D left(123.4f, 567.8f);

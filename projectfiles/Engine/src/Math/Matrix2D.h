@@ -1,11 +1,12 @@
 #ifndef ENGINE_MATRIX2D_H
 #define ENGINE_MATRIX2D_H
 
-#include <cmath>
 #include "Vector2D.h"
+#include <cmath>
 
 namespace gameMath
 {
+	
 	struct Matrix2D
 	{
 		float r0c0;

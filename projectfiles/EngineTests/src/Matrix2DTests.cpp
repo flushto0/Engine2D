@@ -45,7 +45,6 @@ TEST(Matrix2D, MatrixRotation)
 	EXPECT_TRUE(checkThreshold(oper.r1c1, 0.0f));
 
 	oper = Matrix2D::rotate((float)M_PI / 4);
-	float sqrt2over2 = 0.70710678118;
 	EXPECT_FLOAT_EQ(oper.r0c0, 1.0f / sqrt(2.0f));
 	EXPECT_FLOAT_EQ(oper.r0c1, -1.0f / sqrt(2.0f));
 	EXPECT_FLOAT_EQ(oper.r1c0, 1.0f / sqrt(2.0f));
