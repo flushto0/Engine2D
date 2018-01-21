@@ -59,7 +59,7 @@ void GlWindow::paintGL()
 void GlWindow::update()
 {
 	gameClock.newFrame();
-	updateVelocity();
+	rotateShip();
 	shipPosition = shipPosition + shipVelocity * gameClock.timeElapsedLastFrame();
 	repaint();
 }
@@ -76,7 +76,7 @@ bool GlWindow::initialize()
 	return gameClock.initialize();
 }
 
-void GlWindow::updateVelocity()
+void GlWindow::rotateShip()
 {
 	const float ACCELERATION = 0.6f * gameClock.timeElapsedLastFrame();
 	if (GetAsyncKeyState(VK_UP))
@@ -95,4 +95,9 @@ void GlWindow::updateVelocity()
 	{
 		shipVelocity.x += ACCELERATION;
 	}
+}
+
+void GlWindow::updateVelocity()
+{
+
 }

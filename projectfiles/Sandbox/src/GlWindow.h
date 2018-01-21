@@ -17,6 +17,7 @@ protected:
 	void paintGL();
 private slots:
 	void update();
+	void rotateShip();
 	void updateVelocity();
 };
 
