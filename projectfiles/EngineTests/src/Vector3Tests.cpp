@@ -49,3 +49,29 @@ TEST(Vector3, ScalarMultiplication)
 	EXPECT_FLOAT_EQ(multiple2.z, multiple.z);
 
 }
+
+TEST(Vector3, OperatorPlusEq)
+{
+	Vector3 sum(2, 3, 4);
+	Vector3 right(1, 2, 3);
+
+	sum += right;
+
+	EXPECT_FLOAT_EQ(sum.x, 3);
+	EXPECT_FLOAT_EQ(sum.y, 5);
+	EXPECT_FLOAT_EQ(sum.z, 7);
+
+}
+
+TEST(Vector3, OperatorMinusEq)
+{
+	Vector3 diff(4, 5, 6);
+	Vector3 right(1, 2, 3);
+
+	diff -= right;
+
+	EXPECT_FLOAT_EQ(diff.x, 3);
+	EXPECT_FLOAT_EQ(diff.y, 3);
+	EXPECT_FLOAT_EQ(diff.z, 3);
+
+}
