@@ -13,9 +13,18 @@ Matrix3 fmath::Matrix3::rotateZ(float angleInRadians)
 
 	return Matrix3(
 		cosPart, -sinPart, 0,
-		sinPart,  cosPart, 0,
-		0,        0,       1
+		sinPart, cosPart, 0,
+		0, 0, 1
 	);
+}
+
+Matrix3 fmath::Matrix3::translate(float x, float y)
+{
+	return Matrix3(
+		1, 0, x,
+		0, 1, y,
+		0, 0, 1
+		);
 }
 
 Vector3 operator*(Matrix3 &matrix, Vector3 &vector)

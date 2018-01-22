@@ -113,3 +113,16 @@ TEST(Matrix3, MatrixRotation)
 	EXPECT_FLOAT_EQ(oper.r2c2, 1);
 
 }
+
+TEST(Matrix3, MatrixTranslation)
+{
+	Matrix3 translator = Matrix3::translate(10, 15);
+	Vector3 object(-3, 8, 1);
+
+	Vector3 result = translator	* object;
+
+	EXPECT_FLOAT_EQ(result.x, 7);
+	EXPECT_FLOAT_EQ(result.y, 23);
+	EXPECT_FLOAT_EQ(result.z, 1);
+
+}

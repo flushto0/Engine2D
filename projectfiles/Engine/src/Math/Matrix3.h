@@ -17,6 +17,7 @@ namespace fmath
 			float r1c0 = 0, float r1c1 = 1, float r1c2 = 0,
 			float r2c0 = 0, float r2c1 = 0, float r2c2 = 1);
 		inline static Matrix3 rotateZ(float angleInRadians);
+		inline static Matrix3 translate(float x, float y);
 	};
 
 	inline Vector3 operator*(Matrix3 &matrix, Vector3 &vector);
