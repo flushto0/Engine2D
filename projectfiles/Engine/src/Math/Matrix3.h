@@ -21,6 +21,7 @@ namespace fmath
 	};
 
 	inline Vector3 operator*(Matrix3 &matrix, Vector3 &vector);
+	inline Vector3 operator*(Matrix3 &left, Vector3 &right);
 
 #include "Matrix3.inl"
 }
