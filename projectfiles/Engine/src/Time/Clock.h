@@ -3,7 +3,7 @@
 
 #include <Windows.h>
 
-namespace gameTime
+namespace ftime
 {
 	class __declspec(dllexport) Clock
 	{

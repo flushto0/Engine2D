@@ -3,26 +3,26 @@
 #include <cassert>
 #include <QtGui\QKeyEvent>
 
-#include <Math\Matrix2D.h>
-#include <Math\Vector2D.h>
+#include <Math\Matrix3.h>
+#include <Math\Vector3.h>
 #include <Time\Clock.h>
 
 namespace
 {
-	using gameMath::Vector2D;
-	using gameMath::Matrix2D;
-	using gameTime::Clock;
+	using fmath::Vector3;
+	using fmath::Matrix3;
+	using ftime::Clock;
 
-	Vector2D verts[] =
+	Vector3 verts[] =
 	{
-		Vector2D(+0.0f, 0.14142135623f),
-		Vector2D(-0.1f, -0.1f),
-		Vector2D(+0.1f, -0.1f)
+		Vector3(+0.0f, 0.14142135623f),
+		Vector3(-0.1f, -0.1f),
+		Vector3(+0.1f, -0.1f)
 	};
 
 	const unsigned int NUM_VERTS = sizeof(verts) / sizeof(*verts);
-	Vector2D shipPosition;
-	Vector2D shipVelocity;
+	Vector3 shipPosition;
+	Vector3 shipVelocity;
 	Clock gameClock;
 
 	float shipOrientation = 0.0f;
@@ -45,7 +45,7 @@ void GlWindow::initializeGL()
 void GlWindow::paintGL()
 {
 	int minSize = std::min(width(), height());
-	Vector2D viewLoc;
+	Vector3 viewLoc;
 	viewLoc.x = width() / 2 - minSize / 2;
 	viewLoc.y = height() / 2 - minSize / 2;
 	glViewport(viewLoc.x, viewLoc.y, minSize, minSize);
@@ -53,11 +53,11 @@ void GlWindow::paintGL()
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
 
-	Vector2D transformedVerts[NUM_VERTS];
-	Matrix2D oper = Matrix2D::rotate(shipOrientation);
+	Vector3 transformedVerts[NUM_VERTS];
+	Matrix3 oper = Matrix3::rotate(shipOrientation);
 
 	for (unsigned int i = 0; i < NUM_VERTS; i++)
-		transformedVerts[i] = shipPosition + (oper * verts[i]);
+		transformedVerts[i] = oper * verts[i];
 
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(transformedVerts), transformedVerts);
 
@@ -68,6 +68,7 @@ void GlWindow::update()
 {
 	gameClock.newFrame();
 	rotateShip();
+	updateVelocity();
 	shipPosition += shipVelocity * gameClock.timeElapsedLastFrame();
 	repaint();
 }
@@ -86,24 +87,26 @@ bool GlWindow::initialize()
 
 void GlWindow::rotateShip()
 {
-	const float ANGULAR_MOVEMENT = 10.0f * gameClock.timeElapsedLastFrame();
+	const float ANGULAR_MOVEMENT = 2.0f * gameClock.timeElapsedLastFrame();
 	
 	if (GetAsyncKeyState(VK_LEFT))
 	{
-		shipOrientation -= ANGULAR_MOVEMENT;
+		shipOrientation += ANGULAR_MOVEMENT;
 	}
 	if (GetAsyncKeyState(VK_RIGHT))
 	{
-		shipOrientation += ANGULAR_MOVEMENT;
+		shipOrientation -= ANGULAR_MOVEMENT;
 	}
 }
 
 void GlWindow::updateVelocity()
 {
-	const float ACCELERATION = 0.6f * gameClock.timeElapsedLastFrame();
+	const float ACCELERATION = 1.0f * gameClock.timeElapsedLastFrame();
+
+	Vector3 accelerationDirection(-sin(shipOrientation), cos(shipOrientation));
 
 	if (GetAsyncKeyState(VK_UP))
 	{
-		shipVelocity.y += ACCELERATION;
+		shipVelocity += (accelerationDirection * ACCELERATION);
 	}
 }

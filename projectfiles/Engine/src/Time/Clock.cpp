@@ -1,6 +1,6 @@
 #include "Clock.h"
 
-namespace gameTime
+namespace ftime
 {
 	bool Clock::initialize()
 	{

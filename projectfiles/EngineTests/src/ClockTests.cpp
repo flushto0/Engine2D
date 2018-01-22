@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-using gameTime::Clock;
+using ftime::Clock;
 
 TEST(Clock, ClockInitializeFns)
 {
