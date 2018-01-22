@@ -7,5 +7,9 @@ Matrix3::Matrix3(
 	r2c0(r2c0), r2c1(r2c1), r2c2(r2c2) {}
 Vector3 operator*(Matrix3 &matrix, Vector3 &vector)
 {
-	return Vector3();
+	return Vector3(
+		matrix.r0c0 * vector.x + matrix.r0c1 * vector.y + matrix.r0c2 * vector.z,
+		matrix.r1c0 * vector.x + matrix.r1c1 * vector.y + matrix.r1c2 * vector.z,
+		matrix.r2c0 * vector.x + matrix.r2c1 * vector.y + matrix.r2c2 * vector.z
+	);
 }

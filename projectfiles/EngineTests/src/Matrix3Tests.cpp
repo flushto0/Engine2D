@@ -38,5 +38,17 @@ TEST(Matrix3, Ctor)
 
 TEST(Matrix3, MatrixVectorMultiply)
 {
+	Matrix3 oper(
+		1, 2, 3,
+		4, 5, 6,
+		7, 8, 9
+	);
+	Vector3 vec(1, 2, 3);
+
+	Vector3 result = oper * vec;
+
+	EXPECT_FLOAT_EQ(result.x, 14);
+	EXPECT_FLOAT_EQ(result.y, 32);
+	EXPECT_FLOAT_EQ(result.z, 50);
 
 }

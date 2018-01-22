@@ -15,6 +15,14 @@ TEST(Matrix2, CtorDefault)
 	EXPECT_FLOAT_EQ(identity.r1c0, 0.0f);
 	EXPECT_FLOAT_EQ(identity.r1c1, 1.0f);
 
+	Matrix2 random(
+		1, 2,
+		3, 4);
+	EXPECT_FLOAT_EQ(random.r0c0, 1);
+	EXPECT_FLOAT_EQ(random.r0c1, 2);
+	EXPECT_FLOAT_EQ(random.r1c0, 3);
+	EXPECT_FLOAT_EQ(random.r1c1, 4);
+
 }
 
 TEST(Matrix2, MatrixVectorMultiply)
