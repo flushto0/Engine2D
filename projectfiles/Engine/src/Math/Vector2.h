@@ -11,8 +11,8 @@ namespace fmath
 
 		explicit Vector2(float x = 0.0f, float y = 0.0f) : x(x), y(y) {}
 
-		inline Vector2& operator+=(const Vector2& right);
-		inline Vector2& operator-=(const Vector2& right);
+		inline Vector2& operator+=(const Vector2 &right);
+		inline Vector2& operator-=(const Vector2 &right);
 	};
 
 	inline Vector2 operator+(const Vector2 &left, const Vector2 &right);

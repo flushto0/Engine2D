@@ -13,7 +13,7 @@ Vector2 operator*(const Vector2 &vector, float scalar)
 	return scalar * vector;
 }
 
-Vector2& Vector2::operator+=(const Vector2 & right)
+Vector2& Vector2::operator+=(const Vector2 &right)
 {
 	x += right.x;
 	y += right.y;
@@ -21,7 +21,7 @@ Vector2& Vector2::operator+=(const Vector2 & right)
 	return *this;
 }
 
-Vector2& Vector2::operator-=(const Vector2 & right)
+Vector2& Vector2::operator-=(const Vector2 &right)
 {
 	x -= right.x;
 	y -= right.y;

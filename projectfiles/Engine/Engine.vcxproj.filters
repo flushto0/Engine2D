@@ -13,6 +13,7 @@
     <None Include="src\Math\Matrix2.inl" />
     <None Include="src\Math\Vector2.inl" />
     <None Include="src\Math\Vector3.inl" />
+    <None Include="src\Math\Matrix3.inl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Math\Vector2D.h">

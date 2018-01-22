@@ -11,8 +11,8 @@ namespace fmath
 
 		explicit Vector3(float x = 0.0f, float y = 0.0f, float z = 0.0f) : x(x), y(y), z(z) {}
 
-		inline Vector3& operator+=(const Vector3& right);
-		inline Vector3& operator-=(const Vector3& right);
+		inline Vector3& operator+=(const Vector3 &right);
+		inline Vector3& operator-=(const Vector3 &right);
 	};
 
 	inline Vector3 operator+(const Vector3 &left, const Vector3 &right);
