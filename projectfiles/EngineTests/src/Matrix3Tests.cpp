@@ -23,8 +23,7 @@ TEST(Matrix3, Ctor)
 	Matrix3 random(
 		1, 2, 3,
 		4, 5, 6,
-		7, 8, 9
-	);
+		7, 8, 9);
 	EXPECT_FLOAT_EQ(random.r0c0, 1);
 	EXPECT_FLOAT_EQ(random.r0c1, 2);
 	EXPECT_FLOAT_EQ(random.r0c2, 3);
