@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Debugging\Profiler\Profiler.h" />
     <ClInclude Include="src\Math\Constants.h" />
     <ClInclude Include="src\Math\Matrix2.h" />
     <ClInclude Include="src\Math\Matrix2D.h" />
@@ -37,6 +38,7 @@
     <None Include="src\Math\Vector3.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Debugging\Profiler\Profiler.cpp" />
     <ClCompile Include="src\Time\Clock.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

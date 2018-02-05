@@ -26,8 +26,10 @@
     <ClInclude Include="src\Math\Vector3.h" />
     <ClInclude Include="src\Math\Matrix2.h" />
     <ClInclude Include="src\Math\Vector2.h" />
+    <ClInclude Include="src\Debugging\Profiler\Profiler.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Time\Clock.cpp" />
+    <ClCompile Include="src\Debugging\Profiler\Profiler.cpp" />
   </ItemGroup>
 </Project>
