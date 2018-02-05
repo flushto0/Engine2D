@@ -21,7 +21,7 @@ string getNextToken(ifstream& theFile)
 	return ret;
 }
 
-TEST(Profiler, Functionality)
+TEST(Profiler, SampleFunctionality)
 {
 	const char* profileFileName = "profiles.txt";
 	Profiler profiler;
