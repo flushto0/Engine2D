@@ -6,8 +6,11 @@ namespace fdebug
 	class __declspec(dllexport) Profiler
 	{
 		const char* fileName;
-		const unsigned int MAX_FRAME_SAMPLES = 500;
-		const unsigned int MAX_PROFILE_CATEGORIES = 5;
+		int frameIndex;
+		int categoryIndex;
+
+		static const unsigned int MAX_FRAME_SAMPLES = 500;
+		static const unsigned int MAX_PROFILE_CATEGORIES = 5;
 		struct ProfileCategory
 		{
 			const char* name;
